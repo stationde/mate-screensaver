@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>rootdir - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>rootdir - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>root@0db034745a0c</td></tr>
+<tr><th>Working Directory:</th><td>/rootdir</td></tr>
+<tr><th>Command Line:</th><td>make -j 2</td></tr>
+<tr><th>Clang Version:</th><td>clang version 13.0.0 (Fedora 13.0.0-3.fc35)
+</td></tr>
+<tr><th>Date:</th><td>Tue Dec 14 11:27:17 2021</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">31</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Out-of-bound access</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_out-of-bound_access');" checked/></center></td></tr>
+<tr><th>Memory error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Memory leak</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_memory_leak');" checked/></center></td></tr>
+<tr><th>Security</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_');" checked/></center></td></tr>
+<tr><th>Unused code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">18</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_assignment');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Unreachable code</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_unreachable_code');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-auth-pam.c</td><td class="DESC">create_pam_handle</td><td class="Q">380</td><td class="Q">1</td><td><a href="report-00e51a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-00e51a.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/mate-screensaver-command.c</td><td class="DESC">do_command</td><td class="Q">440</td><td class="Q">1</td><td><a href="report-03ec9c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-03ec9c.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/mate-screensaver-command.c</td><td class="DESC">do_command</td><td class="Q">340</td><td class="Q">1</td><td><a href="report-0c2141.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0c2141.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-auth-pam.c</td><td class="DESC">pam_conversation</td><td class="Q">255</td><td class="Q">1</td><td><a href="report-1acd85.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1acd85.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-watcher-x11.c</td><td class="DESC">connect_presence_watcher</td><td class="Q">467</td><td class="Q">1</td><td><a href="report-1bfc2b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1bfc2b.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-window-x11.c</td><td class="DESC">error_watch</td><td class="Q">1028</td><td class="Q">1</td><td><a href="report-2e7b3d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2e7b3d.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/mate-screensaver-command.c</td><td class="DESC">do_command</td><td class="Q">430</td><td class="Q">1</td><td><a href="report-46879d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-46879d.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/mate-screensaver-command.c</td><td class="DESC">do_command</td><td class="Q">445</td><td class="Q">1</td><td><a href="report-5a4cfa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5a4cfa.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-watcher-x11.c</td><td class="DESC">disable_builtin_screensaver</td><td class="Q">597</td><td class="Q">1</td><td><a href="report-5a7e4c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5a7e4c.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-watcher-x11.c</td><td class="DESC">disable_builtin_screensaver</td><td class="Q">599</td><td class="Q">1</td><td><a href="report-6874cb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6874cb.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-window-x11.c</td><td class="DESC">spawn_on_window</td><td class="Q">1131</td><td class="Q">1</td><td><a href="report-7ff556.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7ff556.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-auth-pam.c</td><td class="DESC">create_pam_handle</td><td class="Q">382</td><td class="Q">1</td><td><a href="report-8d9fa7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8d9fa7.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-window-x11.c</td><td class="DESC">lock_command_watch</td><td class="Q">1632</td><td class="Q">1</td><td><a href="report-9aea00.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9aea00.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/mate-screensaver-command.c</td><td class="DESC">do_command</td><td class="Q">435</td><td class="Q">1</td><td><a href="report-b6a2ca.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b6a2ca.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-window-x11.c</td><td class="DESC">keyboard_command_watch</td><td class="Q">1364</td><td class="Q">1</td><td><a href="report-bdee24.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bdee24.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-auth-pam.c</td><td class="DESC">gs_auth_pam_verify_user</td><td class="Q">675</td><td class="Q">1</td><td><a href="report-d19b50.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d19b50.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>rc/gs-watcher-x11.c</td><td class="DESC">disable_builtin_screensaver</td><td class="Q">596</td><td class="Q">1</td><td><a href="report-de7a3e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-de7a3e.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>avers/gste-popsquares.c</td><td class="DESC">make_color_ramp</td><td class="Q">232</td><td class="Q">1</td><td><a href="report-f5f821.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f5f821.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>rc/mate-screensaver-command.c</td><td class="DESC">get_string_from_iter</td><td class="Q">327</td><td class="Q">27</td><td><a href="report-087562.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-087562.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">92</td><td class="Q">17</td><td><a href="report-bf57fc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bf57fc.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">119</td><td class="Q">1</td><td><a href="report-2b51b5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2b51b5.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">56</td><td class="Q">1</td><td><a href="report-32f008.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-32f008.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">147</td><td class="Q">1</td><td><a href="report-39ce57.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-39ce57.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">62</td><td class="Q">1</td><td><a href="report-9abbaa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9abbaa.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">55</td><td class="Q">1</td><td><a href="report-0f097b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0f097b.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">61</td><td class="Q">1</td><td><a href="report-4d30f6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4d30f6.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">118</td><td class="Q">1</td><td><a href="report-7fc783.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7fc783.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>avers/xdg-user-dir-lookup.c</td><td class="DESC">xdg_user_dir_lookup</td><td class="Q">146</td><td class="Q">1</td><td><a href="report-a03d02.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a03d02.html" -->
+</tr>
+<tr class="bt_unused_code_unreachable_code"><td class="DESC">Unused code</td><td class="DESC">Unreachable code</td><td>rc/mate-screensaver-dialog.c</td><td class="DESC">main</td><td class="Q">585</td><td class="Q">1</td><td><a href="report-10ca0e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-10ca0e.html" -->
+</tr>
+<tr class="bt_unused_code_unreachable_code"><td class="DESC">Unused code</td><td class="DESC">Unreachable code</td><td>rc/test-fade.c</td><td class="DESC">main</td><td class="Q">94</td><td class="Q">1</td><td><a href="report-edbd3d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-edbd3d.html" -->
+</tr>
+<tr class="bt_unused_code_unreachable_code"><td class="DESC">Unused code</td><td class="DESC">Unreachable code</td><td>rc/mate-screensaver-command.c</td><td class="DESC">main</td><td class="Q">529</td><td class="Q">1</td><td><a href="report-ff611b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ff611b.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>
